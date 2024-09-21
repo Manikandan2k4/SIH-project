@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Details</title>
+    <style>
+        /* Global Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f2f5;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 0;
+            margin: 0;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        /* Taskbar */
+        .taskbar {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+            background-color: #ff0000;
+            color: white;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 100;
+        }
+
+        .taskbar h1 {
+            font-size: 1.5em;
+        }
+
+        .taskbar nav {
+            display: flex;
+            gap: 20px;
+        }
+
+        .taskbar nav a {
+            color: white;
+            text-decoration: none;
+            font-size: 1em;
+        }
+
+        .taskbar nav a:hover {
+            text-decoration: underline;
+        }
+
+        /* Layout */
+        .main-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 60px; /* Space for taskbar */
+            width: 100%;
+            height: calc(100vh - 60px); /* Full height minus taskbar height */
+            overflow-y: auto;
+            padding: 20px;
+        }
+
+        .product-details {
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            max-width: 800px;
+            width: 100%;
+        }
+
+        .product-details img {
+            width: 100%;
+            max-height: 400px;
+            object-fit: cover;
+        }
+
+        .product-details h2 {
+            margin: 20px 0;
+        }
+
+        .product-details .price {
+            font-size: 1.5em;
+            color: #ff0000;
+            margin: 10px 0;
+        }
+
+        .quote-form {
+            margin-top: 20px;
+        }
+
+        .quote-form input, .quote-form textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        .quote-form button {
+            padding: 10px;
+            background-color: #ff0000;
+            color: #ffffff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1em;
+        }
+
+        .quote-form button:hover {
+            background-color: #cc0000;
+        }
+
+        /* Ranking Section */
+        .ranking {
+            margin-top: 20px;
+            width: 100%;
+            max-width: 800px;
+        }
+
+        .ranking h3 {
+            margin-bottom: 10px;
+        }
+
+        .ranking ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .ranking li {
+            background-color: white;
+            padding: 10px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            margin-bottom: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .ranking .user {
+            font-weight: bold;
+        }
+
+        .ranking .price {
+            color: #ff0000;
+        }
+
+        /* Payment Box */
+        .payment-box {
+            display: none;
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            max-width: 800px;
+            width: 100%;
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .payment-box h3 {
+            margin-bottom: 10px;
+        }
+
+        .payment-box p {
+            margin-bottom: 20px;
+        }
+
+        .payment-box button {
+            padding: 10px;
+            background-color: #ff0000;
+            color: #ffffff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1em;
+        }
+
+        .payment-box button:hover {
+            background-color: #cc0000;
+        }
+
+        .countdown {
+            font-size: 1.2em;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="taskbar">
+        <h1>eBuy</h1>
+        <nav>
+            <a href="main.html">Home</a>
+            <a href="ebuy.html">Products</a>
+            <a href="contact.html">Contact</a>
+        </nav>
+    </div>
+
+    <div class="main-container">
+        <div class="product-details" id="productDetails">
+            <img src="" alt="Product Image">
+            <h2>Product Title</h2>
+            <p class="description">Product description goes here.</p>
+            <div class="price">₹0.00</div>
+            <form class="quote-form" id="quoteForm">
+                <label for="quotePrice">Quote your price:</label>
+                <input type="number" id="quotePrice" name="quotePrice" placeholder="Enter your price" required>
+                <label for="quoteMessage">Message (optional):</label>
+                <textarea id="quoteMessage" name="quoteMessage" rows="4" placeholder="Enter any additional details"></textarea>
+                <button type="submit">Submit Quote</button>
+            </form>
+        </div>
+
+        <div class="ranking">
+            <h3>Top 10 Rankings</h3>
+            <ul id="rankingList">
+                <!-- Ranking items will be injected here -->
+            </ul>
+        </div>
+
+        <div class="payment-box" id="paymentBox">
+            <h3>Congratulations!</h3>
+            <p>Your quote is the highest. You are eligible to purchase this product.</p>
+            <button onclick="completePurchase()">Proceed to Payment</button>
+        </div>
+
+        <div class="countdown" id="countdown">Time remaining: 1:00</div>
+    </div>
+
+    <script>
+        // Extract productId from the URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const productId = urlParams.get('id');
+        
+        // Example product details (you should fetch these from your server)
+        const productDetails = {
+            image: `https://www.stampworld.com/media/images/stamps/stamp_${productId}.jpg`,
+            title: `Stamp ${productId}`,
+            description: `This is a description for stamp ${productId}. A unique and rare collectible item.`,
+            price: (productId * 10).toFixed(2)
+        };
+
+        // Update the page with the product details
+        document.querySelector('.product-details img').src = productDetails.image;
+        document.querySelector('.product-details h2').textContent = productDetails.title;
+        document.querySelector('.product-details .description').textContent = productDetails.description;
+        document.querySelector('.product-details .price').textContent = `₹${productDetails.price}`;
+
+        // Dummy ranking data
+        const rankingList = document.getElementById('rankingList');
+        const rankings = [
+            { user: 'Alice', price: 150 },
+            { user: 'Bob', price: 140 },
+            { user: 'Charlie', price: 130 },
+            // Add more rankings as needed
+        ];
+
+        // Populate the ranking list
+        rankings.forEach((rank, index) => {
+            const listItem = document.createElement('li');
+            listItem.innerHTML = `
+                <span class="user">${index + 1}. ${rank.user}</span>
+                <span class="price">₹${rank.price}</span>
+            `;
+            rankingList.appendChild(listItem);
+        });
+
+        // Handle quote submission
+        const quoteForm = document.getElementById('quoteForm');
+        let userQuote = null;
+        let topQuote = Math.max(...rankings.map(rank => rank.price)); // Initialize with highest quote
+
+        quoteForm.addEventListener('submit', function(event) {
+            event.preventDefault();
+            const quotePrice = parseFloat(document.getElementById('quotePrice').value);
+            const quoteMessage = document.getElementById('quoteMessage').value;
+            
+            if (quotePrice > topQuote) {
+                userQuote = quotePrice;
+                document.getElementById('paymentBox').style.display = 'block';
+            } else {
+                alert('Your quote is not the highest. Try again!');
+            }
+        });
+
+        // Countdown logic
+        const countdownElement = document.getElementById('countdown');
+        let countdownTime = 60; // 1 minute in seconds
+
+        function updateCountdown() {
+            const minutes = Math.floor(countdownTime / 60);
+            const seconds = countdownTime % 60;
+            countdownElement.textContent = `Time remaining: ${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
+            countdownTime--;
+
+            if (countdownTime < 0) {
+                clearInterval(countdownInterval);
+                if (userQuote === topQuote) {
+                    document.getElementById('paymentBox').style.display = 'block';
+                }
+            }
+        }
+
+        const countdownInterval = setInterval(updateCountdown, 1000);
+
+        // Dummy function to simulate purchase
+        function completePurchase() {
+            alert('Proceeding to payment...');
+            // Redirect to payment gateway or handle payment processing
+        }
+    </script>
+</body>
+</html>

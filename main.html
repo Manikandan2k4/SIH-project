@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Social Media Page</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+
+    <!-- Taskbar -->
+    <div class="taskbar">
+        <h1>Pan Stamp</h1>
+        <nav>
+            <a href="main.html">Home</a>
+            <a href="#">Profile</a>
+            <a href="ebuy.html">Products</a>
+            <a href="contact.html">Contact us</a>
+        </nav>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-container">
+        
+    <!-- Left Sidebar - News Section -->
+    <div class="left-sidebar">
+        <h2>News Articles</h2>
+        <div class="news-item">
+            <img src="news1.jpg" alt="News Image 1" class="news-img">
+            <div class="news-content">
+                <h4>News Title 1</h4>
+                <p>Brief description of the news article content.</p>
+            </div>
+        </div>
+        <div class="news-item">
+            <img src="news3.jpg" alt="News Image 2" class="news-img">
+            <div class="news-content">
+                <h4>News Title 2</h4>
+                <p>Brief description of the news article content.</p>
+            </div>
+        </div>
+        <div class="news-item">
+            <img src="news2.jpg" alt="News Image 3" class="news-img">
+            <div class="news-content">
+                <h4>News Title 3</h4>
+                <p>Brief description of the news article content.</p>
+            </div>
+        </div>
+        <div class="news-item">
+            <img src="news4.jpg" alt="News Image 4" class="news-img">
+            <div class="news-content">
+                <h4>News Title 4</h4>
+                <p>Brief description of the news article content.</p>
+            </div>
+        </div>
+        <div class="news-item">
+            <img src="news5.jpg" alt="News Image 5" class="news-img">
+            <div class="news-content">
+                <h4>News Title 5</h4>
+                <p>Brief description of the news article content.</p>
+            </div>
+        </div>
+    </div>
+
+
+        <!-- Center Container - Posts Section -->
+        <div class="center-container">
+            
+            <!-- Profile Box -->
+            <div class="profile-box">
+                <div class="profile-info">
+                    <div class="profile-pic"></div>
+                    <div class="profile-details">
+                        <strong>Surjit Kumar</strong><br>
+                        A philatelist
+                    </div>
+                </div>
+
+                <!-- Message Bar -->
+                <div class="message-bar">
+                    <input type="text" id="messageInput" placeholder="Type a message">
+                    <label for="imageInput">📎</label>
+                    <input type="file" id="imageInput" style="display: none;" />
+                    <button onclick="sendMessage()">Send</button>
+                </div>
+                
+            </div>
+
+            <!-- Posts Section -->
+            <div class="posts" id="posts"></div>
+
+        </div>
+
+        <!-- Right Sidebar - Profile Info -->
+        <div class="right-sidebar">
+            <div class="profile-pic-large"></div>
+            <h2>Surjit Kumar</h2>
+            <div class="profile-info">
+                <p> A philatelist Chennai, India</p>  
+            
+                <p> </p>
+            </div>
+            <div class="stats">
+                <div>
+                    <strong>250</strong>
+                    Followers
+                </div>
+                <div>
+                    <strong>180</strong>
+                    Following
+                </div>
+                <div>
+                    <strong>45</strong>
+                    Profile Views
+                </div>
+            </div>
+            <button>Groups</button>
+            <button>Chats</button>
+        </div>
+
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,549 @@
+/* General Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    height: 100vh;
+    background-color: #f0f2f5;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Taskbar */
+.taskbar {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    background-color: #ff0000;
+    color: white;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 100;
+}
+
+.taskbar h1 {
+    font-size: 1.5em;
+}
+
+.taskbar nav {
+    display: flex;
+    gap: 20px;
+}
+
+.taskbar nav a {
+    color: white;
+    text-decoration: none;
+    font-size: 1em;
+}
+
+.taskbar nav a:hover {
+    text-decoration: underline;
+}
+
+/* Layout Grid for Sidebars and Center */
+.main-container {
+    display: grid;
+    grid-template-columns: 250px 1fr 250px; /* Sidebars 250px each, center 1fr */
+    gap: 20px; /* Space between columns */
+    margin-top: 80px;
+    width: 80%;
+    padding: 20px;
+}
+
+/* Left Sidebar - News Section */
+.left-sidebar {
+    background-color: white;
+    padding: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    height: 80vh;
+    overflow-y: auto;
+}
+
+.left-sidebar h2 {
+    font-size: 1.2em;
+    margin-bottom: 20px;
+}
+
+.news-item {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 15px;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 15px;
+}
+
+.news-img {
+    width: 80px;
+    height: 60px;
+    border-radius: 5px;
+    object-fit: cover;
+    margin-right: 15px;
+}
+
+.news-content {
+    flex: 1;
+}
+
+.news-content h4 {
+    font-size: 1.1em;
+    margin: 0;
+    color: #333;
+}
+
+.news-content p {
+    font-size: 0.9em;
+    color: #666;
+    margin: 5px 0 0;
+}
+
+
+.news-item {
+    margin-bottom: 15px;
+}
+
+.news-item h4 {
+    font-size: 1.1em;
+    margin-bottom: 5px;
+}
+
+.news-item p {
+    font-size: 0.9em;
+    color: #555;
+}
+
+/* Center Container - Posts Section */
+.center-container {
+    display: flex;
+    flex-direction: column;
+    width: 100%; /* Full width of center container */
+}
+
+.profile-box {
+    width: 100%;
+    padding: 20px;
+    background-color: white;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    margin-bottom: 20px;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Profile Info */
+.profile-info {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    width: 100%;
+    max-width: 800px;
+}
+
+.profile-pic {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    margin-right: 20px;
+    background-color: #ccc;
+    border: 4px solid #ff0000;
+    background-size: cover;
+    background-position: center;
+    background-image: url('mee.jpg'); /* Replace with your image path */
+
+}
+
+.profile-details {
+    font-size: 1.5em;
+    font-weight: bold;
+    color: #333;
+}
+
+/* Message Bar */
+.message-bar {
+    display: flex;
+    width: 100%;
+    padding: 15px;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    align-items: center;
+}
+
+.message-bar input[type="text"] {
+    flex-grow: 1;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    margin-right: 10px;
+    font-size: 1em;
+}
+
+.message-bar label {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    background-color: white;
+    margin-right: 10px;
+    cursor: pointer;
+    font-size: 1.2em;
+    color: #555;
+}
+
+.message-bar button {
+    padding: 10px 20px;
+    background-color: #ff0400;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 1em;
+    transition: background-color 0.3s;
+}
+
+.message-bar button:hover {
+    background-color: #cc0000;
+}
+/* Posts Section */
+.posts {
+    flex-grow: 1;
+    width: 100%;
+    overflow-y: auto;
+    padding: 20px;
+    background-color: #fff;
+}
+
+.post {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+    padding: 15px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    width: 100%;
+}
+
+.post-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.post-header .profile-pic {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background-color: #ccc;
+    margin-right: 15px;
+}
+
+.post-header .profile-details {
+    font-size: 1em;
+}
+
+.post-content {
+    margin-top: 10px;
+}
+
+.post-content .message {
+    background-color: #ffffff;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    margin-bottom: 10px;
+    font-size: 0.95em;
+}
+
+.post-content .message img {
+    max-width: 100%;
+    border-radius: 5px;
+    margin-top: 10px;
+}
+
+.post-content img {
+    max-width: 100%;
+    border-radius: 5px;
+    margin-top: 10px;
+    display: block;
+}
+
+/* Action Buttons */
+.action-buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+
+.action-buttons button {
+    background: none;
+    border: none;
+    color: #555;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    font-size: 0.9em;
+    transition: color 0.3s, transform 0.2s;
+}
+
+.action-buttons button:hover {
+    color: #000;
+    transform: scale(1.05); /* Slightly scale up the button on hover */
+}
+
+.action-buttons .like-button {
+    color: #007bff;
+}
+
+.action-buttons .unlike-button {
+    color: #dc3545;
+}
+
+.action-buttons .comment-button {
+    color: #28a745;
+}
+
+.action-buttons .share-button {
+    color: #ff9900;
+}
+
+/* Buttons and Icons */
+.action-buttons button i {
+    margin-right: 5px;
+    font-size: 1.2em;
+    transition: color 0.3s;
+}
+
+.action-buttons .like-button i {
+    color: #007bff;
+}
+
+.action-buttons .unlike-button i {
+    color: #dc3545;
+}
+
+.action-buttons .comment-button i {
+    color: #28a745;
+}
+
+.action-buttons .share-button i {
+    color: #ff9900;
+}
+
+/* Comment Section */
+.comments-section {
+    display: none; /* Initially hidden */
+    margin-top: 10px;
+    padding-top: 10px;
+    border-top: 1px solid #ddd;
+}
+
+.comments-section textarea {
+    width: calc(100% - 22px);
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 0.95em;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+}
+
+.comments-section button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+    cursor: pointer;
+    font-size: 0.95em;
+    transition: background-color 0.3s;
+}
+
+.comments-section button:hover {
+    background-color: #0056b3;
+}
+
+.comment {
+    padding: 10px;
+    border-top: 1px solid #ddd;
+    font-size: 0.95em;
+}
+
+.comment .comment-info {
+    display: flex;
+    align-items: center;
+    margin-bottom: 5px;
+}
+
+.comment .comment-pic {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: #ccc;
+    margin-right: 10px;
+}
+
+.comment .comment-details {
+    font-size: 0.9em;
+}
+
+.comment .comment-details strong {
+    display: block;
+    font-weight: bold;
+}
+
+.comment .comment-details p {
+    margin: 0;
+    color: #555;
+}
+
+/* Right Sidebar - Profile Info */
+.right-sidebar {
+    background-color: white;
+    padding: 20px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    border-radius: 15px;
+    height: auto; /* Adjust for content */
+}
+
+.right-sidebar .profile-pic-large {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    background-color: #ccc; /* Fallback color if the image fails to load */
+    margin-bottom: 20px;
+    border: 4px solid #ff0000;
+    background-size: cover;
+    background-position: center;
+    background-image: url('mee.jpg'); /* Replace with your image path */
+}
+
+
+.right-sidebar h2 {
+    font-size: 1.1em;
+    color: #333;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.right-sidebar .profile-info p {
+    margin: 8px 0;
+    color: #555;
+    font-size: 1em;
+}
+
+.right-sidebar .stats {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    font-size: 0.7em;
+}
+
+.right-sidebar .stats div {
+    text-align: center;
+}
+
+.right-sidebar .stats strong {
+    display: block;
+    font-size: 1.5em;
+    margin-bottom: 5px;
+    color: #ff0000;
+}
+
+.right-sidebar button {
+    background-color: #ff0400;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    padding: 12px;
+    font-size: 1.1em;
+    cursor: pointer;
+    width: 100%;
+    transition: background-color 0.3s;
+    margin-top: 10px;
+}
+
+.right-sidebar button:hover {
+    background-color: #cc0000;
+}
+
+
+/* Additional Styles for Responsive Design */
+@media (max-width: 1024px) {
+    .main-container {
+        grid-template-columns: 150px 1fr 150px; /* Adjust for medium screens */
+        gap: 15px;
+    }
+
+    .left-sidebar, .right-sidebar {
+        height: auto; /* Adjust height for smaller screens */
+    }
+
+    .profile-pic, .profile-pic-large {
+        width: 60px;
+        height: 60px;
+        background-image: url('mee.jpg'); /* Replace with your image path */
+
+
+    }
+}
+
+@media (max-width: 768px) {
+    .main-container {
+        grid-template-columns: 1fr; /* Stack sidebars on top of center on smaller screens */
+        grid-template-rows: auto 1fr auto;
+        gap: 10px;
+    }
+
+    .left-sidebar, .right-sidebar {
+        display: none; /* Hide sidebars on very small screens */
+    }
+
+    .profile-box {
+        width: 100%;
+    }
+
+    .post {
+        margin: 10px 0;
+    }
+}
+
+/* Additional Hover Effects for Buttons */
+.buttons button {
+    transition: color 0.3s;
+}
+
+.buttons button i {
+    transition: color 0.3s;
+}
+
+/* Scrollbars Styling */
+.left-sidebar::-webkit-scrollbar, 
+.right-sidebar::-webkit-scrollbar, 
+.posts::-webkit-scrollbar, 
+.comment-section::-webkit-scrollbar {
+    width: 8px;
+}
+
+.left-sidebar::-webkit-scrollbar-thumb, 
+.right-sidebar::-webkit-scrollbar-thumb, 
+.posts::-webkit-scrollbar-thumb, 
+.comment-section::-webkit-scrollbar-thumb {
+    background-color: #ddd;
+    border-radius: 10px;
+}
+
+.left-sidebar::-webkit-scrollbar-thumb:hover, 
+.right-sidebar::-webkit-scrollbar-thumb:hover, 
+.posts::-webkit-scrollbar-thumb:hover, 
+.comment-section::-webkit-scrollbar-thumb:hover {
+    background-color: #ccc;
+}

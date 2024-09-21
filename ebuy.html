@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>eBuy - Stamp Collection</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f2f5;
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+        }
+
+        /* Taskbar */
+        .taskbar {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+            background-color: #ff0000;
+            color: white;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 100;
+        }
+
+        .taskbar h1 {
+            font-size: 1.5em;
+        }
+
+        .taskbar nav {
+            display: flex;
+            gap: 20px;
+        }
+
+        .taskbar nav a {
+            color: white;
+            text-decoration: none;
+            font-size: 1em;
+        }
+
+        .taskbar nav a:hover {
+            text-decoration: underline;
+        }
+
+        /* Layout */
+        .main-container {
+            display: flex;
+            margin-top: 60px; /* Adjusted to account for taskbar height */
+            height: calc(100vh - 60px); /* Full height minus taskbar height */
+        }
+
+        .left-sidebar {
+            background-color: white;
+            padding: 20px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            width: 250px;
+            height: 100%;
+            overflow-y: auto;
+        }
+
+        .left-sidebar .profile-pic {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background-color: #ccc;
+            margin-bottom: 20px;
+            margin-left: auto;
+            margin-right: auto;
+            background-image: url('mee.jpg'); /* Replace with your image path */
+
+        }
+
+        .left-sidebar h2 {
+            text-align: center;
+            margin-bottom: 10px;
+            font-size: 1.2em;
+        }
+
+        .left-sidebar .profile-info {
+            text-align: center;
+            color: #333;
+        }
+
+        .left-sidebar .profile-stats {
+            margin-top: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .profile-stats .stat {
+            font-size: 1em;
+            color: #555;
+            margin: 10px 0;
+        }
+
+        .profile-stats .stat .count {
+            font-size: 1.2em;
+            color: #ff0000;
+            font-weight: bold;
+        }
+
+        .main-content {
+            flex-grow: 1;
+            padding: 20px;
+            overflow-y: auto;
+        }
+
+        .product-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+            gap: 15px;
+        }
+
+        /* Product Card */
+        .product {
+            background-color: #ffffff;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            padding: 10px;
+        }
+
+        .product img {
+            width: 100%;
+            height: 120px; /* Fixed height for images */
+            object-fit: cover;
+        }
+
+        .product h3 {
+            margin: 10px 0;
+            font-size: 1.1em;
+            color: #333;
+        }
+
+        .product p {
+            font-size: 0.9em;
+            color: #555;
+            margin: 5px 0;
+        }
+
+        .product .price {
+            font-size: 1.1em;
+            color: #ff0000;
+            margin: 10px 0;
+        }
+
+        .product button {
+            padding: 10px;
+            background-color: #ff0000;
+            color: #ffffff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1em;
+            margin-top: 10px;
+        }
+
+        .product button:hover {
+            background-color: #cc0000;
+        }
+    </style>
+</head>
+<body>
+    <div class="taskbar">
+        <h1>PanStamp eBuy</h1>
+        <nav>
+            <a href="main.html">Home</a>
+            <a href="ebuy.html">Products</a>
+            <a href="contact.html">Contact</a>
+        </nav>
+    </div>
+    <div class="main-container">
+        <div class="left-sidebar">
+            <div class="profile-pic"></div>
+            <h2>Profile</h2>
+            <div class="profile-info">
+                <b>Surjit Kumar</b>
+                <P> A philatelist</p>
+                <p> Chennai, India</p>            </div>
+            <div class="profile-stats">
+                <div class="stat">
+                    <span class="count">250</span> Followers
+                </div>
+                <div class="stat">
+                    <span class="count">180</span> Following
+                </div>
+                <div class="stat">
+                    <span class="count">340</span> Profile Views
+                </div>
+            </div>
+        </div>
+        <div class="main-content">
+            <div class="product-list" id="productList"></div>
+        </div>
+    </div>
+    <script>
+        const productList = document.getElementById('productList');
+
+        for (let i = 1; i <= 112; i++) {
+            const product = document.createElement('div');
+            product.classList.add('product');
+
+            product.innerHTML = `
+                <a href="beating.html?id=${i}">
+                    <img src="https://www.stampworld.com/media/images/stamps/stamp_${i}.jpg" alt="Stamp ${i}">
+                    <h3>Stamp ${i}</h3>
+                    <p>This is a description for stamp ${i}. A unique and rare collectible item.</p>
+                    <div class="price">₹${(i * 10).toFixed(2)}</div>
+                    <button>View Details</button>
+                </a>
+            `;
+
+            productList.appendChild(product);
+        }
+    </script>
+</body>
+</html>
